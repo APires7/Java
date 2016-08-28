@@ -23,24 +23,24 @@ public class Ponto {
 		y = b;
 		z = c;
 	}
-	
+
 	public void gerarPonto(int quantidade) {
 		for (int i = 0; i < quantidade; i++) {
-			System.out.println("P" + i);
+			//System.out.println("P" + i);
 
 			Random randomX = new Random();
-			int eixoX = randomX.nextInt(13000);
-			System.out.println("X:" + eixoX);
+			int eixoX = randomX.nextInt(areaX);
+			//System.out.println("X:" + eixoX);
 
 			Random randomY = new Random();
-			int eixoY = randomX.nextInt(13000);
-			System.out.println("Y:" + eixoY);
+			int eixoY = randomX.nextInt(areaY);
+			//System.out.println("Y:" + eixoY);
 
 			Random randomZ = new Random();
-			int eixoZ = randomX.nextInt(4);
-			System.out.println("Z:" + eixoZ);
-			System.out.println("---------------");
-			
+			int eixoZ = randomX.nextInt(areaZ);
+			//System.out.println("Z:" + eixoZ);
+			//System.out.println("---------------");
+
 			verificaCoord(eixoX, eixoY, eixoZ);
 		}
 	}
