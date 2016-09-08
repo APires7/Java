@@ -1,6 +1,7 @@
 package trab;
 
 import java.util.Random;
+import java.lang.Math;
 
 public class Ponto {
 
@@ -24,38 +25,29 @@ public class Ponto {
 		z = c;
 	}
 	
-        public int gerarQuantPokemon() { //gera a quantidade de pokemons que iram aparecer na area
-		Random random = new Random();
-		int min = 50;
-		int quantidade = random.nextInt(min) + min;
-		// System.out.println(quantidade);
-		return quantidade;
-	}
-	
 	Pokemon poke = new Pokemon();
 	
 	List<Pokemon> pokem = poke.geraListaPoke();
 	
-	public void gerarPonto(int quantidade) {//gera as coordenadas dos pokemons colocando-os na lista
-		for (int i = 0; i < quantidade; i++) {
+	public void gerarPontos() {//gera as coordenadas dos pokemons colocando-os na lista
+		for (int i = 0; i < pokem.size(); i++) {
 	
-			Random randomX = new Random();
-			int eixoX = randomX.nextInt(13000);
-			pokem[i].add(cordX = eixoX);
+                        int R = geraR();
+                        
+                        int x = cordenadaX(R);
+			pokem[i].add(cordX = x);
 
 
-			Random randomY = new Random();
-			int eixoY = randomX.nextInt(13000);
-			pokem[i].add(cordY = eixoY);
+                        int y = cordenadaY(R);
+			pokem[i].add(cordY = y);
 			
-			Random randomZ = new Random();
-			int eixoZ = randomX.nextInt(4);
-			pokem[i].add(cordZ = eixoZ);
+			int z = cordenadaZ(R)
+			pokem[i].add(cordZ = z);
 			
 			
-			verificaCoord(eixoX, eixoY, eixoZ);
+			verificaCoord(x, y, z, i);
 			CompararPontos();
-		}
+		} 
 	}
 	
 	public void CompararPontos(){//É calculado a distancia entre dois pokemos
@@ -63,7 +55,8 @@ public class Ponto {
 	
 	public void mostrarLista(){//Sera mostrado a lista de pokemons que seram dispostos na area
 	
-                    for (int i = 0; i < quantidade; i++) {
+                    for (int i = 0; i < pokem.size(); i++) {
+                        if(pokem.aceito == true){
 			System.out.println("Numero: "pokem[i].num);
 			System.out.println("Nome: " pokem[i].nome);
 			System.out.println("Tipo: "pokem[i].tipo);
@@ -71,20 +64,31 @@ public class Ponto {
 			System.out.println("cordY: " + pokem[i].cordY);
                         System.out.println("cordZ:" + pokem[i].cordZ);
 			System.out.println("---------------");
-			
+			}
                     }
 	}
 
-	void verificaCoord(int a, int b, int c) {
-		if (a > areaX) {
-			System.out.println("X excede o espaço");
-		}
-		if (b > areaY) {
-			System.out.println("Y excede o espaço");
-		}
-		if (c > areaZ) {
-			System.out.println("Z excede o espaço.");
+	void verificaCoord(int a, int b, int c, int pos) {
+		if (a < areaX && b < areaY && c < areaZ) {
+			pokem[pos].aceito = true;
 		}
 	}
+	
+	public int geraR(){
+            Random randomR = new Random();
+            int valorX = randomR.nextInt(5000);
+            int funcao = ((valorX)/2)*pow(3,2);
+            
+            return funcao;
+	}
 
+        public int cordenadaX(int R){
+            
+        }
+        
+        public int cordenadaY(int R){
+        }
+        
+        public int cordenadaZ(int R){
+        }
 }
