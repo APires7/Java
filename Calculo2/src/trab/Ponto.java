@@ -8,49 +8,58 @@ public class Ponto {
 	protected int areaX = 13000;
 	protected int areaY = 13000;
 	protected int areaZ = 4;
-
-	static double x;
-	static double y;
-	static double z;
-
-	public Ponto() {
-		x = 0.0;
-		y = 0.0;
-		z = 0.0;
-	}
-
-	public Ponto(double a, double b, double c) {
-		x = a;
-		y = b;
-		z = c;
-	}
 	
 	Pokemon poke = new Pokemon();
 	
-	List<Pokemon> pokem = poke.geraListaPoke();
+	ArrayList<Pokemon> pokem = new ArrayList<Pokemon>;
+	pokem = poke.geraListaPoke();
 	
 	public void gerarPontos() {//gera as coordenadas dos pokemons colocando-os na lista
 		for (int i = 0; i < pokem.size(); i++) {
 	
-                        int R = geraR();
+                        double R = geraR();
                         
-                        int x = cordenadaX(R);
-			pokem[i].add(cordX = x);
+                        double x = cordenadaX(R);
+			pokem[i].cordX = x;
 
-
-                        int y = cordenadaY(R);
-			pokem[i].add(cordY = y);
+                        double y = cordenadaY(R);
+			pokem[i].cordY = y;
 			
-			int z = cordenadaZ(R)
-			pokem[i].add(cordZ = z);
+			double z = cordenadaZ(R)
+			pokem[i].cordZ = z;
 			
 			
 			verificaCoord(x, y, z, i);
-			CompararPontos();
+			CompararPontos(i);
+			
+			
 		} 
 	}
 	
-	public void CompararPontos(){//É calculado a distancia entre dois pokemos
+	public void CompararPontos(int i){//É calculado a distancia entre dois pokemos
+            
+            for(int j = 0;j< pokem.size();j++){
+                double valorDist = 0;
+                double calcX = 0;
+                double calcY = 0;
+                double calcZ = 0;
+                if(j == i){
+                    j++;
+                }
+                calcX = pokem[j].cordX+pokem[i].cordX;
+                calcX = pokem[j].cordY+pokem[i].cordY;
+                calcX = pokem[j].cordZ+pokem[i].cordZ;
+                valorDist = sqrt(pow(calcX,2) + pow(calcY,2) + pow(calcZ,2)) // talvez tenha que ponhar o (Math.) antes
+                if(valorDist >= 5){
+                    pokem[j].aceito = true;
+                }
+                else if(valorDist < 5){
+                    pokem[j].aceito = false;
+                }
+            }
+	
+	
+	
 	}
 	
 	public void mostrarLista(){//Sera mostrado a lista de pokemons que seram dispostos na area
@@ -68,27 +77,29 @@ public class Ponto {
                     }
 	}
 
-	void verificaCoord(int a, int b, int c, int pos) {
+	void verificaCoord(double a, double b, double c, double pos) {
 		if (a < areaX && b < areaY && c < areaZ) {
 			pokem[pos].aceito = true;
 		}
 	}
 	
-	public int geraR(){
+	public double geraR(){
             Random randomR = new Random();
             int valorX = randomR.nextInt(5000);
-            int funcao = ((valorX)/2)*pow(3,2);
+            double funcao = ((valorX)/2)*pow(3,2);
             
             return funcao;
 	}
 
-        public int cordenadaX(int R){
+        public double cordenadaX(double R){ // gera a cordenadaX
             
         }
         
-        public int cordenadaY(int R){
+        public double cordenadaY(double R){// gera a cordenadaY
+        
         }
         
-        public int cordenadaZ(int R){
+        public double cordenadaZ(double R){// gera a cordenadaZ
+        
         }
 }
