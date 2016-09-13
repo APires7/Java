@@ -14,24 +14,26 @@ public class Ponto {
 	static int z;
 
 	Pokemon poke = new Pokemon();
-	ArrayList<Pokemon> pokem = new ArrayList<Pokemon>();
 
 	public void gerarPontos() {// Gera as coordenadas dos pokemons colocando-os
 								// na lista
 		for (int i = 0; i < poke.pokedex.size(); i++) {
 
+			Pokemon pk = new Pokemon();
+			pk = poke.pokedex.get(i);
+			
 			Random randomR = new Random();
 			int X = randomR.nextInt(180);
 
 			double x = cordenadaX(X);
-			poke.pokedex.get(i).cordX = x;
-
+			pk.cordX = x;
 			double y = cordenadaY(X);
-			poke.pokedex.get(i).cordY = y;
-
+			pk.cordY = y;
 			double z = cordenadaZ(X,i);
-			poke.pokedex.get(i).cordZ = z;
+			pk.cordZ = z;
 
+			poke.pokedex.set(i,pk);
+			
 			verificaCoord(x, y, z, i);
 			CompararPontos(i);
 
@@ -40,7 +42,7 @@ public class Ponto {
 
 	public void CompararPontos(int i) {// Calcula a distância entre dois
 										// pokemóns
-
+		Pokemon pk2 = new Pokemon();
 		for (int j = 0; j < poke.pokedex.size(); j++) {
 			double valorDist = 0;
 			double calcX = 0;
@@ -54,9 +56,13 @@ public class Ponto {
 			calcZ = poke.pokedex.get(j).cordZ + poke.pokedex.get(i).cordZ;
 			valorDist = Math.sqrt(Math.pow(calcX, 2) + Math.pow(calcY, 2) + Math.pow(calcZ, 2)); // Aqui
 			if (valorDist >= 5) {
-				pokem.get(j).aceito = true;
+				pk2.aceito = true;
+				poke.pokedex.set(i,pk2);
+				
 			} else if (valorDist < 5) {
-				pokem.get(j).aceito = false;
+				pk2.aceito = false;
+				poke.pokedex.set(i,pk2);
+				
 			}
 		}
 

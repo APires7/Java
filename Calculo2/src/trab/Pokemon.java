@@ -4,16 +4,17 @@ import java.util.ArrayList;
 
 public class Pokemon {
 
-	String nome;
-	int num;
-	String tipo;
-	double cordX;
-	double cordY;
-	double cordZ;
-	boolean aceito;
+	public String nome;
+	public int num;
+	public String tipo;
+	public double cordX;
+	public double cordY;
+	public double cordZ;
+	public boolean aceito;
 
 	ArrayList<Pokemon> pokedex = new ArrayList<Pokemon>();
-
+    
+	
 	public ArrayList<Pokemon> getPokedex() {
 		return pokedex;
 	}
@@ -32,6 +33,9 @@ public class Pokemon {
 		aceito = false;
 	}
 
+	
+	
+	
 	public Pokemon(String nomes, int numero, String tipos, double cX, double cY, double cZ, boolean acc) {
 		nome = nomes;
 		num = numero;
