@@ -23,13 +23,13 @@ public class Ponto {
 			double R = geraR();
 
 			double x = cordenadaX(R);
-			poke.pokeDex.get(i).cordX = x;
+			poke.pokedex.get(i).cordX = x;
 
 			double y = cordenadaY(R);
-			poke.pokeDex.get(i).cordY = y;
+			poke.pokedex.get(i).cordY = y;
 
 			double z = cordenadaZ(R);
-			poke.pokeDex.get(i).cordZ = z;
+			poke.pokedex.get(i).cordZ = z;
 
 			verificaCoord(x, y, z, i);
 			CompararPontos(i);
@@ -40,7 +40,7 @@ public class Ponto {
 	public void CompararPontos(int i) {// Calcula a distância entre dois
 										// pokemóns
 
-		for (int j = 0; j < poke.pokeDex.size(); j++) {
+		for (int j = 0; j < poke.pokedex.size(); j++) {
 			double valorDist = 0;
 			double calcX = 0;
 			double calcY = 0;
@@ -48,9 +48,9 @@ public class Ponto {
 			if (j == i) {
 				j++;
 			}
-			calcX = poke.pokeDex.get(j).cordX + poke.pokeDex.get(i).cordX;
-			calcY = poke.pokeDex.get(j).cordY + poke.pokeDex.get(i).cordY;
-			calcZ = poke.pokeDex.get(j).cordZ + poke.pokeDex.get(i).cordZ;
+			calcX = poke.pokedex.get(j).cordX + poke.pokedex.get(i).cordX;
+			calcY = poke.pokedex.get(j).cordY + poke.pokedex.get(i).cordY;
+			calcZ = poke.pokedex.get(j).cordZ + poke.pokedex.get(i).cordZ;
 			valorDist = Math.sqrt(Math.pow(calcX, 2) + Math.pow(calcY, 2) + Math.pow(calcZ, 2)); // Aqui
 			if (valorDist >= 5) {
 				pokem.get(j).aceito = true;
@@ -64,14 +64,14 @@ public class Ponto {
 	public void mostrarLista() {// Sera mostrado a lista de pokemons que seram
 								// dispostos na area
 
-		for (int i = 0; i < poke.pokeDex.size(); i++) {
-			if (poke.pokeDex.get(i).aceito == true) {
-				System.out.println("Numero: " + poke.pokeDex.get(i).num);
-				System.out.println("Nome: " + poke.pokeDex.get(i).nome);
-				System.out.println("Tipo: " + poke.pokeDex.get(i).tipo);
-				System.out.println("cordX: " + poke.pokeDex.get(i).cordX);
-				System.out.println("cordY: " + poke.pokeDex.get(i).cordY);
-				System.out.println("cordZ:" + poke.pokeDex.get(i).cordZ);
+		for (int i = 0; i < poke.pokedex.size(); i++) {
+			if (poke.pokedex.get(i).aceito == true) {
+				System.out.println("Numero: " + poke.pokedex.get(i).num);
+				System.out.println("Nome: " + poke.pokedex.get(i).nome);
+				System.out.println("Tipo: " + poke.pokedex.get(i).tipo);
+				System.out.println("cordX: " + poke.pokedex.get(i).cordX);
+				System.out.println("cordY: " + poke.pokedex.get(i).cordY);
+				System.out.println("cordZ:" + poke.pokedex.get(i).cordZ);
 				System.out.println("---------------");
 			}
 		}
