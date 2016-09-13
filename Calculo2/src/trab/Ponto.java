@@ -1,60 +1,103 @@
 package trab;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Ponto {
-
+	
 	protected int areaX = 13000;
 	protected int areaY = 13000;
 	protected int areaZ = 4;
 
 	static int x;
 	static int y;
-	static int z;
+	static int z;	
 
-	public Ponto() {
-		x = 0;
-		y = 0;
-		z = 0;
-	}
+	Pokemon poke = new Pokemon();
+	ArrayList<Pokemon> pokem = new ArrayList<Pokemon>();
+	
+	public void gerarPontos() {// Gera as coordenadas dos pokemons colocando-os na lista
+		for (int i = 0; i < pokem.size(); i++) {
 
-	public Ponto(int a, int b, int c) {
-		x = a;
-		y = b;
-		z = c;
-	}
+			double R = geraR();
 
-	public void gerarPonto(int quantidade) {
-		for (int i = 0; i < quantidade; i++) {
-			//System.out.println("P" + i);
+			double x = cordenadaX(R);
+			pokem[i].cordX = x;
 
-			Random randomX = new Random();
-			int eixoX = randomX.nextInt(areaX);
-			//System.out.println("X:" + eixoX);
+			double y = cordenadaY(R);
+			pokem[i].cordY = y;
 
-			Random randomY = new Random();
-			int eixoY = randomX.nextInt(areaY);
-			//System.out.println("Y:" + eixoY);
+			double z = cordenadaZ(R);
+			pokem[i].cordZ = z;
 
-			Random randomZ = new Random();
-			int eixoZ = randomX.nextInt(areaZ);
-			//System.out.println("Z:" + eixoZ);
-			//System.out.println("---------------");
+			verificaCoord(x, y, z, i);
+			CompararPontos(i);
 
-			verificaCoord(eixoX, eixoY, eixoZ);
 		}
 	}
 
-	void verificaCoord(int a, int b, int c) {
-		if (a > areaX) {
-			System.out.println("X excede o espaço");
+	public void CompararPontos(int i) {// Calcula a distância entre dois pokemóns
+
+		for (int j = 0; j < pokem.size(); j++) {
+			double valorDist = 0;
+			double calcX = 0;
+			double calcY = 0;
+			double calcZ = 0;
+			if (j == i) {
+				j++;
+			}
+			calcX = pokem[j].cordX + pokem[i].cordX;
+			calcX = pokem[j].cordY + pokem[i].cordY;
+			calcX = pokem[j].cordZ + pokem[i].cordZ;
+			valorDist = Math.sqrt(Math.pow(calcX, 2) + Math.pow(calcY, 2) + Math.pow(calcZ, 2)); // Aqui
+			if (valorDist >= 5) {
+				pokem[j].aceito = true;
+			} else if (valorDist < 5) {
+				pokem[j].aceito = false;
+			}
 		}
-		if (b > areaY) {
-			System.out.println("Y excede o espaço");
+
+	}
+
+	public void mostrarLista() {// Sera mostrado a lista de pokemons que seram dispostos na area
+
+		for (int i = 0; i < pokem.size(); i++) {
+			if (pokem.aceito == true) {
+				System.out.println("Numero: " + pokem[i].num);
+				System.out.println("Nome: " + pokem[i].nome);
+				System.out.println("Tipo: " + pokem[i].tipo);
+				System.out.println("cordX: " + pokem[i].cordX);
+				System.out.println("cordY: " + pokem[i].cordY);
+				System.out.println("cordZ:" + pokem[i].cordZ);
+				System.out.println("---------------");
+			}
 		}
-		if (c > areaZ) {
-			System.out.println("Z excede o espaço.");
+	}
+
+	void verificaCoord(double a, double b, double c, double pos) {
+		if (a < areaX && b < areaY && c < areaZ) {
+			pokem[pos].aceito = true;
 		}
+	}
+
+	public double geraR() {
+		Random randomR = new Random();
+		int valorX = randomR.nextInt(5000);
+		double funcao = ((valorX) / 2) * Math.pow(3, 2);
+
+		return funcao;
+	}
+
+	public double cordenadaX(double R) { // gera a cordenadaX
+		return R;
+	}
+
+	public double cordenadaY(double R) {// gera a cordenadaY
+		return R;
+	}
+
+	public double cordenadaZ(double R) {// gera a cordenadaZ
+		return R;
 	}
 
 }

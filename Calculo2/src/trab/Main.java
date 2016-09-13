@@ -8,7 +8,7 @@ public class Main {
 
 		Scanner scan = new Scanner(System.in);
 		Ponto pt = new Ponto();
-		Pokemon poke = new Pokemon();
+		Pokemon poke = new Pokemon();		
 		int opc = 0;
 
 		do {
