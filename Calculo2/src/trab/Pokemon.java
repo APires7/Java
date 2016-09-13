@@ -4,81 +4,143 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class Pokemon {
-	
+
 	private String nome;
 	private int num;
 	private String tipo;
-	private double cordX
+	private double cordX;
 	private double cordY;
 	private double cordZ;
-	private boolean aceito;
-        
-        
-        public Pokemon{
-            nome = "";
-            num = 0;
-            tipo = "";
-            cordX = 0.0;
-            cordY = 0.0;
-            cordZ = 0.0;
-            aceito = false;
-        }
-	
-	
-        ArrayList<Pokemon> pokedex = new ArrayList<Pokemon>;
-	
+	private int aceito;
+
+	public Pokemon() {
+		nome = "";
+		num = 0;
+		tipo = "";
+		cordX = 0.0;
+		cordY = 0.0;
+		cordZ = 0.0;
+		aceito = 0;
+	}
+
+	public Pokemon(String nomes, int numero, String tipos, double cordenadaX, double cordenadaY, double cordenadaZ,int aceitos) 
+	{
+		nome = nomes;
+		num = numero;
+		tipo = tipos;
+		cordX = cordenadaX;
+		cordY = cordenadaY;
+		cordZ = cordenadaZ;
+		aceito = aceitos;
+	}
+
+	ArrayList<Pokemon> pokedex = new ArrayList<Pokemon>();
+
 	public ArrayList<Pokemon> gerarListaPoke(){
-	
-            pokedex.add{"bulbasaur",1,"Grama",0,0,0,false};
-            pokedex.add{"ivisaur",2,"Grama",0,0,0,false};
-            pokedex.add{"venusaur",3,"Grama",0,0,0,false};
-            pokedex.add{"charmander",4,"fogo",0,0,0,false};
-            pokedex.add{"charmeleon",5,"fogo",0,0,0,false};
-            pokedex.add{"charizard",6,"fogo",0,0,0,false};
-            pokedex.add{"squirtle",7,"agua",0,0,0,false};
-            pokedex.add{"wartortle",8,"agua",0,0,0,false};
-            pokedex.add{"blastoise",9,"agua",0,0,0,false};
-            pokedex.add{"caterpie",10,"solo",0,0,0,false};
-            pokedex.add{"metapod",11,"Grama",0,0,0,false};
-            pokedex.add{"butterfree",12,"voador",0,0,0,false};
-            pokedex.add{"weedle",13,"solo",0,0,0,false};
-            pokedex.add{"kakuna",14,"Grama",0,0,0,false};
-            pokedex.add{"beedrill",15,"voador",0,0,0,false};
-            pokedex.add{"pidgey",16,"voador",0,0,0,false};
-            pokedex.add{"pideotto",17,"voador",0,0,0,false};
-            pokedex.add{"pideot",18,"voador",0,0,0,false};
-            pokedex.add{"ratata",19,"solo",0,0,0,false};
-            pokedex.add{"raticate",20,"solo",0,0,0,false};
-            pokedex.add{"spearow",21,"voador",0,0,0,false};
-            pokedex.add{"fearow",22,"voador",0,0,0,false};
-            pokedex.add{"ekans",23,"solo",0,0,0,false};
-            pokedex.add{"arbok",24,"solo",0,0,0,false};
-            pokedex.add{"pikachu",25,"eletrico",0,0,0,false};
-            pokedex.add{"raichu",26,"eletrico",0,0,0,false};
-            pokedex.add{"sandshew",27,"solo",0,0,0,false};
-            pokedex.add{"sandslash",28,"solo",0,0,0,false};
-            pokedex.add{"nidoram(m)",29,"solo",0,0,0,false};
-            pokedex.add{"nidorino",30,"solo",0,0,0,false};
-            pokedex.add{"nidoking",31,"solo",0,0,0,false};
-            pokedex.add{"nidoram(f)",32,"solo",0,0,0,false};
-            pokedex.add{"nidorina",33,"solo",0,0,0,false};
-            pokedex.add{"nidoqueen",34,"solo",0,0,0,false};
-            pokedex.add{"clefary",35,"solo",0,0,0,false};
-            pokedex.add{"clafable",36,"solo",0,0,0,false};
-            pokedex.add{"vulpix",37,"fogo",0,0,0,false};
-            pokedex.add{"ninetails",38,"fogo",0,0,0,false};
-            pokedex.add{"jigglypuff",39,"solo",0,0,0,false};
-            pokedex.add{"wigglypuff",40,"solo",0,0,0,false};
-            pokedex.add{"zubat",41,"voador",0,0,0,false};
-            pokedex.add{"golbat",42,"voador",0,0,0,false};
-            pokedex.add{"oddish",43,"solo",0,0,0,false};
-            pokedex.add{"gloom",44,"solo",0,0,0,false};
-            pokedex.add{"vileplume",45,"solo",0,0,0,false};
-            pokedex.add{"paras",46,"solo",0,0,0,false};
-            pokedex.add{"parasect",47,"solo",0,0,0,false};
-            pokedex.add{"venonat",48,"solo",0,0,0,false};
-            pokedex.add{"venomoth",49,"voador",0,0,0,false};
-            pokedex.add{"diglet",50,"solo",0,0,0,false};
+			
+			Pokemon P1 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P2 = new Pokemon("ivisaur",2,"Grama",0,0,0,0);
+			Pokemon P3 = new Pokemon("venusaur",3,"Grama",0,0,0,0);
+			Pokemon P4 = new Pokemon("charmander",4,"fogo",0,0,0,0);
+			Pokemon P5 = new Pokemon("charmeleon",5,"fogo",0,0,0,0);
+			Pokemon P6 = new Pokemon("charizard",6,"fogo",0,0,0,0);
+			Pokemon P7 = new Pokemon("squirtle",7,"agua",0,0,0,0);
+			Pokemon P8 = new Pokemon("wartortle",8,"agua",0,0,0,0);
+			Pokemon P9 = new Pokemon("blastoise",9,"agua",0,0,0,0);
+			Pokemon P10 = new Pokemon("caterpie",10,"solo",0,0,0,0);
+			Pokemon P11 = new Pokemon("metapod",11,"Grama",0,0,0,0);
+			Pokemon P12 = new Pokemon("butterfree",12,"voador",0,0,0,0);
+			Pokemon P13 = new Pokemon("weedle",13,"solo",0,0,0,0);
+			Pokemon P14 = new Pokemon("kakuna",14,"Grama",0,0,0,0);
+			Pokemon P15 = new Pokemon("beedrill",15,"voador",0,0,0,0);
+			Pokemon P16 = new Pokemon("pidgey",16,"voador",0,0,0,0);
+			Pokemon P17 = new Pokemon("pideotto",17,"voador",0,0,0,0);
+			Pokemon P18 = new Pokemon("pideot",18,"voador",0,0,0,0);
+			Pokemon P19 = new Pokemon("ratata",19,"solo",0,0,0,0);
+			Pokemon P20 = new Pokemon("raticate",20,"solo",0,0,0,0);
+			Pokemon P21 = new Pokemon("spearow",21,"voador",0,0,0,0);
+			Pokemon P22 = new Pokemon("fearow",22,"voador",0,0,0,0);
+			Pokemon P23 = new Pokemon("ekans",23,"solo",0,0,0,0);
+			Pokemon P24 = new Pokemon("arbok",24,"solo",0,0,0,0);
+			Pokemon P25 = new Pokemon("pikachu",25,"eletrico",0,0,0,0);
+			Pokemon P26 = new Pokemon("raichu",26,"eletrico",0,0,0,0);
+			Pokemon P27 = new Pokemon("sandshew",27,"solo",0,0,0,0);
+			Pokemon P28 = new Pokemon("sandslash",28,"solo",0,0,0,0);
+			Pokemon P29 = new Pokemon("nidoram(m)",29,"solo",0,0,0,0);
+			Pokemon P30 = new Pokemon("nidorino",30,"solo",0,0,0,0);
+			Pokemon P31 = new Pokemon("nidoking",31,"solo",0,0,0,0);
+			Pokemon P32 = new Pokemon("nidoram(f)",32,"solo",0,0,0,0);
+			Pokemon P33 = new Pokemon("nidorina",33,"solo",0,0,0,0);
+			Pokemon P34 = new Pokemon("nidoqueen",34,"solo",0,0,0,0);
+			Pokemon P35 = new Pokemon("clefary",35,"solo",0,0,0,0);
+			Pokemon P36 = new Pokemon("clafable",36,"solo",0,0,0,0);
+			Pokemon P37 = new Pokemon("vulpix",37,"fogo",0,0,0,0);
+			Pokemon P38 = new Pokemon("ninetails",38,"fogo",0,0,0,0);
+			Pokemon P39 = new Pokemon("jigglypuff",39,"solo",0,0,0,0);
+			Pokemon P40 = new Pokemon("wigglypuff",40,"solo",0,0,0,0);
+			Pokemon P41 = new Pokemon("zubat",41,"voador",0,0,0,0);
+			Pokemon P42 = new Pokemon("golbat",42,"voador",0,0,0,0);
+			Pokemon P43 = new Pokemon("oddish",43,"solo",0,0,0,0);
+			Pokemon P44 = new Pokemon("gloom",44,"solo",0,0,0,0);
+			Pokemon P45 = new Pokemon("vileplume",45,"solo",0,0,0,0);
+			Pokemon P46 = new Pokemon("paras",46,"solo",0,0,0,0);
+			Pokemon P47 = new Pokemon("parasect",47,"solo",0,0,0,0);
+			Pokemon P48 = new Pokemon("venonat",48,"solo",0,0,0,0);
+			Pokemon P49 = new Pokemon("venomoth",49,"voador",0,0,0,0);
+			Pokemon P50 = new Pokemon("diglet",50,"solo",0,0,0,0);
+			Pokemon P51 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P52 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P53 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P54 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P55 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P56 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P57 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P58 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P59 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P60 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P61 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P62 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P63 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P64 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P65 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P66 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P67 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P68 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P69 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P70 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P71 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P72 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P73 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P74 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P75 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P76 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P77 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P78 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P79 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P80 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P81 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P82 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P83 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P84 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P85 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P86 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P87 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P88 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P89 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P90 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P91 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P92 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P93 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P94 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P95 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P96 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P97 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P98 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P99 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			Pokemon P100 = new Pokemon("bulbasaur",1,"Grama",0,0,0,0);
+			
+
+          
             pokedex.add{"dugtrio",51,"solo",0,0,0,false};
             pokedex.add{"meowth",52,"solo",0,0,0,false};
             pokedex.add{"persian",53,"solo",0,0,0,false};
@@ -132,5 +194,111 @@ public class Pokemon {
             
             return pokedex;
 	}
-	
+
 }
+
+
+
+
+pokedex.add(0,P1);
+pokedex.add(1,P2);
+pokedex.add(2,P3);
+pokedex.add(3,P4);
+pokedex.add(4,P5);
+pokedex.add(5,P6);
+pokedex.add(6,P7);
+pokedex.add(7,P8);
+pokedex.add(8,P9);
+pokedex.add(9,P10);
+pokedex.add(10,P11);
+pokedex.add(11,P12);
+pokedex.add(12,P13);
+pokedex.add(13,14);
+pokedex.add(14,P15);
+pokedex.add(15,P16);
+pokedex.add(16,P17);
+pokedex.add(17,P18);
+pokedex.add(18,P19);
+pokedex.add(19,P20);
+pokedex.add(20,P21);
+pokedex.add(21,P22);
+pokedex.add(22,P23);
+pokedex.add(23,P24);
+pokedex.add(24,P25);
+pokedex.add(25,P26);
+pokedex.add(26,P27);
+pokedex.add(27,P28);
+pokedex.add(28,P29);
+pokedex.add(29,P30);
+pokedex.add(30,P31);
+pokedex.add(31,P32);
+pokedex.add(32,P33);
+pokedex.add(33,P34);
+pokedex.add(34,P35);
+pokedex.add(35,P36);
+pokedex.add(36,P37);
+pokedex.add(37,P38);
+pokedex.add(38,P39);
+pokedex.add(39,P40);
+pokedex.add(40,P41);
+pokedex.add(41,P42);
+pokedex.add(42,P43);
+pokedex.add(43,P44);
+pokedex.add(44,P45);
+pokedex.add(45,P46);
+pokedex.add(46,P47);
+pokedex.add(47,P48);
+pokedex.add(48,P49);
+pokedex.add(49,P50);
+pokedex.add(50,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+pokedex.add(1,P2);
+
