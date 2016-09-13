@@ -4,31 +4,32 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Ponto {
-	
+
 	protected int areaX = 13000;
 	protected int areaY = 13000;
 	protected int areaZ = 4;
 
 	static int x;
 	static int y;
-	static int z;	
+	static int z;
 
 	Pokemon poke = new Pokemon();
 	ArrayList<Pokemon> pokem = new ArrayList<Pokemon>();
-	
-	public void gerarPontos() {// Gera as coordenadas dos pokemons colocando-os na lista
+
+	public void gerarPontos() {// Gera as coordenadas dos pokemons colocando-os
+								// na lista
 		for (int i = 0; i < pokem.size(); i++) {
 
 			double R = geraR();
 
 			double x = cordenadaX(R);
-			pokem[i].cordX = x;
+			poke.pokeDex.get(i).cordX = x;
 
 			double y = cordenadaY(R);
-			pokem[i].cordY = y;
+			poke.pokeDex.get(i).cordY = y;
 
 			double z = cordenadaZ(R);
-			pokem[i].cordZ = z;
+			poke.pokeDex.get(i).cordZ = z;
 
 			verificaCoord(x, y, z, i);
 			CompararPontos(i);
@@ -36,9 +37,10 @@ public class Ponto {
 		}
 	}
 
-	public void CompararPontos(int i) {// Calcula a distância entre dois pokemóns
+	public void CompararPontos(int i) {// Calcula a distância entre dois
+										// pokemóns
 
-		for (int j = 0; j < pokem.size(); j++) {
+		for (int j = 0; j < poke.pokeDex.size(); j++) {
 			double valorDist = 0;
 			double calcX = 0;
 			double calcY = 0;
@@ -46,37 +48,38 @@ public class Ponto {
 			if (j == i) {
 				j++;
 			}
-			calcX = pokem[j].cordX + pokem[i].cordX;
-			calcX = pokem[j].cordY + pokem[i].cordY;
-			calcX = pokem[j].cordZ + pokem[i].cordZ;
+			calcX = poke.pokeDex.get(j).cordX + poke.pokeDex.get(i).cordX;
+			calcY = poke.pokeDex.get(j).cordY + poke.pokeDex.get(i).cordY;
+			calcZ = poke.pokeDex.get(j).cordZ + poke.pokeDex.get(i).cordZ;
 			valorDist = Math.sqrt(Math.pow(calcX, 2) + Math.pow(calcY, 2) + Math.pow(calcZ, 2)); // Aqui
 			if (valorDist >= 5) {
-				pokem[j].aceito = true;
+				pokem.get(j).aceito = true;
 			} else if (valorDist < 5) {
-				pokem[j].aceito = false;
+				pokem.get(j).aceito = false;
 			}
 		}
 
 	}
 
-	public void mostrarLista() {// Sera mostrado a lista de pokemons que seram dispostos na area
+	public void mostrarLista() {// Sera mostrado a lista de pokemons que seram
+								// dispostos na area
 
-		for (int i = 0; i < pokem.size(); i++) {
-			if (pokem.aceito == true) {
-				System.out.println("Numero: " + pokem[i].num);
-				System.out.println("Nome: " + pokem[i].nome);
-				System.out.println("Tipo: " + pokem[i].tipo);
-				System.out.println("cordX: " + pokem[i].cordX);
-				System.out.println("cordY: " + pokem[i].cordY);
-				System.out.println("cordZ:" + pokem[i].cordZ);
+		for (int i = 0; i < poke.pokeDex.size(); i++) {
+			if (poke.pokeDex.get(i).aceito == true) {
+				System.out.println("Numero: " + poke.pokeDex.get(i).num);
+				System.out.println("Nome: " + poke.pokeDex.get(i).nome);
+				System.out.println("Tipo: " + poke.pokeDex.get(i).tipo);
+				System.out.println("cordX: " + poke.pokeDex.get(i).cordX);
+				System.out.println("cordY: " + poke.pokeDex.get(i).cordY);
+				System.out.println("cordZ:" + poke.pokeDex.get(i).cordZ);
 				System.out.println("---------------");
 			}
 		}
 	}
 
-	void verificaCoord(double a, double b, double c, double pos) {
+	void verificaCoord(double a, double b, double c, int pos) {
 		if (a < areaX && b < areaY && c < areaZ) {
-			pokem[pos].aceito = true;
+			pokem.get(pos).aceito = true;
 		}
 	}
 

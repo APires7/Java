@@ -8,9 +8,9 @@ public class Pokemon {
 	String nome;
 	int num;
 	String tipo;
-	int cordX;
-	int cordY;
-	int cordZ;
+	double cordX;
+	double cordY;
+	double cordZ;
 	boolean aceito;
 
 	ArrayList<Pokemon> pokeDex = new ArrayList<Pokemon>();
@@ -25,7 +25,7 @@ public class Pokemon {
 		aceito = false;
 	}
 
-	public Pokemon(String nomes, int numero, String tipos, int cX, int cY, int cZ, boolean acc) {
+	public Pokemon(String nomes, int numero, String tipos, double cX, double cY, double cZ, boolean acc) {
 		nome = nomes;
 		num = numero;
 		tipo = tipos;
