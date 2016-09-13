@@ -16,7 +16,8 @@ public class Ponto {
 	Pokemon poke = new Pokemon();
 
 	public void gerarPontos() {// Gera as coordenadas dos pokemons colocando-os
-								// na lista
+							
+		poke.gerarListaPoke();// na lista
 		for (int i = 0; i < poke.pokedex.size(); i++) {
 
 			Pokemon pk = new Pokemon();
@@ -41,8 +42,8 @@ public class Ponto {
 	}
 
 	public void CompararPontos(int i) {// Calcula a distância entre dois
-										// pokemóns
-		Pokemon pk2 = new Pokemon();
+		Pokemon pk2 = new Pokemon();	
+		pk2 = poke.pokedex.get(i);// pokemóns
 		for (int j = 0; j < poke.pokedex.size(); j++) {
 			double valorDist = 0;
 			double calcX = 0;
@@ -51,6 +52,9 @@ public class Ponto {
 			if (j == i) {
 				j++;
 			}
+			if(j > 99){
+				break;
+			} 
 			calcX = poke.pokedex.get(j).cordX + poke.pokedex.get(i).cordX;
 			calcY = poke.pokedex.get(j).cordY + poke.pokedex.get(i).cordY;
 			calcZ = poke.pokedex.get(j).cordZ + poke.pokedex.get(i).cordZ;
@@ -85,8 +89,12 @@ public class Ponto {
 	}
 
 	void verificaCoord(double a, double b, double c, int pos) {
+		Pokemon pk3 = new Pokemon();
+		pk3 = poke.pokedex.get(pos);
+		
 		if (a < areaX && b < areaY && c < areaZ) {
-			pokem.get(pos).aceito = true;
+			pk3.aceito = true;
+			poke.pokedex.set(pos, pk3);
 		}
 	}
 
@@ -107,14 +115,18 @@ public class Ponto {
 		
 	}
 
-	public double cordenadaZ(int R,int i) {// gera a cordenadaZ
+	public double cordenadaZ(int R,int i) {// gera a cordenadaZ //rever cordenadaZ
 		
 		double Z = 0;
 		if(poke.pokedex.get(i).tipo == "voador"){
-			Z = Math.sin(R) + 2;
+			System.out.println(R);
+			Z = (Math.cos(R)) + 2;
+			System.out.println(Z);
 		}
 		else{
-			Z = Math.sin(R);
+			System.out.println(R);
+			Z = Math.cos(R);
+			System.out.println(Z);
 		}
 		
 		return Z;
