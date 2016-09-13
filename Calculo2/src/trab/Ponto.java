@@ -5,8 +5,8 @@ import java.util.Random;
 
 public class Ponto {
 
-	protected int areaX = 13000;
-	protected int areaY = 13000;
+	protected int areaX = 10400;
+	protected int areaY = 16200;
 	protected int areaZ = 4;
 
 	static int x;
@@ -18,17 +18,18 @@ public class Ponto {
 
 	public void gerarPontos() {// Gera as coordenadas dos pokemons colocando-os
 								// na lista
-		for (int i = 0; i < pokem.size(); i++) {
+		for (int i = 0; i < poke.pokedex.size(); i++) {
 
-			double R = geraR();
+			Random randomR = new Random();
+			int X = randomR.nextInt(180);
 
-			double x = cordenadaX(R);
+			double x = cordenadaX(X);
 			poke.pokedex.get(i).cordX = x;
 
-			double y = cordenadaY(R);
+			double y = cordenadaY(X);
 			poke.pokedex.get(i).cordY = y;
 
-			double z = cordenadaZ(R);
+			double z = cordenadaZ(X,i);
 			poke.pokedex.get(i).cordZ = z;
 
 			verificaCoord(x, y, z, i);
@@ -83,24 +84,34 @@ public class Ponto {
 		}
 	}
 
-	public double geraR() {
-		Random randomR = new Random();
-		int valorX = randomR.nextInt(5000);
-		double funcao = ((valorX) / 2) * Math.pow(3, 2);
 
-		return funcao;
+	public double cordenadaX(int R) { // gera a cordenadaX
+		
+		double X = 0 ;
+		X = Math.pow(R, 2)/3;
+		return X;
+		
 	}
 
-	public double cordenadaX(double R) { // gera a cordenadaX
-		return R;
+	public double cordenadaY(int R) {// gera a cordenadaY
+		
+		double Y = 0;
+		Y = Math.pow(R, 2)/2;
+		return Y;
+		
 	}
 
-	public double cordenadaY(double R) {// gera a cordenadaY
-		return R;
-	}
-
-	public double cordenadaZ(double R) {// gera a cordenadaZ
-		return R;
+	public double cordenadaZ(int R,int i) {// gera a cordenadaZ
+		
+		double Z = 0;
+		if(poke.pokedex.get(i).tipo == "voador"){
+			Z = Math.sin(R) + 2;
+		}
+		else{
+			Z = Math.sin(R);
+		}
+		
+		return Z;
 	}
 
 }

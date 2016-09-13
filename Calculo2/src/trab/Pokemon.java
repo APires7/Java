@@ -1,7 +1,6 @@
 package trab;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Pokemon {
 
@@ -14,6 +13,14 @@ public class Pokemon {
 	boolean aceito;
 
 	ArrayList<Pokemon> pokedex = new ArrayList<Pokemon>();
+
+	public ArrayList<Pokemon> getPokedex() {
+		return pokedex;
+	}
+
+	public void setPokedex(ArrayList<Pokemon> pokedex) {
+		this.pokedex = pokedex;
+	}
 
 	public Pokemon() {
 		nome = "";
