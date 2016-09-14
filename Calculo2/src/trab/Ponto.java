@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Ponto {
 
-	protected int areaX = 10400;
+	protected int areaX = 10000;
 	protected int areaY = 16200;
 	protected int areaZ = 4;
 
@@ -16,7 +16,8 @@ public class Ponto {
 	Pokemon poke = new Pokemon();
 
 	public void gerarPontos() {// Gera as coordenadas dos pokemons colocando-os
-							
+
+		
 		poke.gerarListaPoke();// na lista
 		for (int i = 0; i < poke.pokedex.size(); i++) {
 
@@ -24,7 +25,7 @@ public class Ponto {
 			pk = poke.pokedex.get(i);
 			
 			Random randomR = new Random();
-			int X = randomR.nextInt(180);
+			int X = randomR.nextInt(100);
 
 			double x = cordenadaX(X);
 			pk.cordX = x;
@@ -59,13 +60,14 @@ public class Ponto {
 			calcY = poke.pokedex.get(j).cordY + poke.pokedex.get(i).cordY;
 			calcZ = poke.pokedex.get(j).cordZ + poke.pokedex.get(i).cordZ;
 			valorDist = Math.sqrt(Math.pow(calcX, 2) + Math.pow(calcY, 2) + Math.pow(calcZ, 2)); // Aqui
-			if (valorDist >= 5) {
+			if (valorDist >= 5 && poke.pokedex.get(i).aceito == true) {
 				pk2.aceito = true;
 				poke.pokedex.set(i,pk2);
 				
 			} else if (valorDist < 5) {
 				pk2.aceito = false;
 				poke.pokedex.set(i,pk2);
+				break;
 				
 			}
 		}
@@ -74,18 +76,21 @@ public class Ponto {
 
 	public void mostrarLista() {// Sera mostrado a lista de pokemons que seram
 								// dispostos na area
-
+		int cont = 0;
 		for (int i = 0; i < poke.pokedex.size(); i++) {
 			if (poke.pokedex.get(i).aceito == true) {
+				cont++;
 				System.out.println("Numero: " + poke.pokedex.get(i).num);
 				System.out.println("Nome: " + poke.pokedex.get(i).nome);
 				System.out.println("Tipo: " + poke.pokedex.get(i).tipo);
-				System.out.println("cordX: " + poke.pokedex.get(i).cordX);
-				System.out.println("cordY: " + poke.pokedex.get(i).cordY);
-				System.out.println("cordZ:" + poke.pokedex.get(i).cordZ);
+				System.out.printf("cordX: %.2f %n" , poke.pokedex.get(i).cordX);
+				System.out.printf("cordY: %.2f %n" , poke.pokedex.get(i).cordY);
+				System.out.printf("cordZ: %.2f %n" , poke.pokedex.get(i).cordZ);
 				System.out.println("---------------");
 			}
+			
 		}
+		System.out.println("Pokemons gerados: " + cont);
 	}
 
 	void verificaCoord(double a, double b, double c, int pos) {
@@ -102,7 +107,7 @@ public class Ponto {
 	public double cordenadaX(int R) { // gera a cordenadaX
 		
 		double X = 0 ;
-		X = Math.pow(R, 2)/3;
+		X = Math.pow(R, 2);
 		return X;
 		
 	}
@@ -110,7 +115,7 @@ public class Ponto {
 	public double cordenadaY(int R) {// gera a cordenadaY
 		
 		double Y = 0;
-		Y = Math.pow(R, 2)/2;
+		Y = Math.pow(2*R, 2)/3;
 		return Y;
 		
 	}
@@ -119,14 +124,11 @@ public class Ponto {
 		
 		double Z = 0;
 		if(poke.pokedex.get(i).tipo == "voador"){
-			System.out.println(R);
-			Z = (Math.cos(R)) + 2;
-			System.out.println(Z);
+			Z = (Math.log(R))+2;
 		}
 		else{
 			System.out.println(R);
-			Z = Math.cos(R);
-			System.out.println(Z);
+			Z = Math.log(R);
 		}
 		
 		return Z;

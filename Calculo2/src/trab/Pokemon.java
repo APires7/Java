@@ -13,8 +13,7 @@ public class Pokemon {
 	public boolean aceito;
 
 	ArrayList<Pokemon> pokedex = new ArrayList<Pokemon>();
-    
-	
+
 	public Pokemon() {
 		nome = "";
 		num = 0;
@@ -25,9 +24,6 @@ public class Pokemon {
 		aceito = false;
 	}
 
-	
-	
-	
 	public Pokemon(String nomes, int numero, String tipos, double cX, double cY, double cZ, boolean acc) {
 		nome = nomes;
 		num = numero;
@@ -139,7 +135,7 @@ public class Pokemon {
 		Pokemon P98 = new Pokemon("Zapdos", 98, "Voador", 0, 0, 0, false);
 		Pokemon P99 = new Pokemon("Moltres", 99, "Voador", 0, 0, 0, false);
 		Pokemon P100 = new Pokemon("Mew", 100, "Psychic", 0, 0, 0, false);
-		
+
 		pokedex.add(P1);
 		pokedex.add(P2);
 		pokedex.add(P3);
